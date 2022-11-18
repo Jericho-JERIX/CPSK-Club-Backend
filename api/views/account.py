@@ -10,8 +10,6 @@ def core_authentication(request,account_id:int,guild_id:int):
         account = Account.objects.get(discord_id=account_id)
         guild = Guild.objects.get(guild_id=guild_id)
 
-        print(account,guild)
-
         return Response({'account':model_to_dict(account),'guild':model_to_dict(guild)},status=status.HTTP_200_OK)
     except:
         return Response(status=status.HTTP_404_NOT_FOUND)
